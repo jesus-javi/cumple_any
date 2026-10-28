@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(to right, #ece9e6, #ffffff);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+}
+
+.contenedor {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    color: #333;
+    animation: latido 2s ease-in-out infinite;
+}
+
+@keyframes latido {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); color: orangered; }
+}
+
+/* Propiedades de tu imagen para que flote y sea responsiva */
+.imagen-abrazo {
+    width: 90%;
+    max-width: 350px; 
+    height: auto;
+    border-radius: 15px;
+    animation: flotarImagen 4s ease-in-out infinite;
+}
+
+@keyframes flotarImagen {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+p {
+    font-weight: 700;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    color: #555;
+    transition: color 0.4s ease;
+}
+
+.caja {
+    border: 3px solid black;
+    width: 90%;
+    max-width: 500px;
+    height: 35px;
+    border-radius: 20px;
+    padding: 3px;
+    background: white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.caja__relleno {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, orangered, #ff4e00);
+    animation: carga 5s forwards cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 15px;
+}
+    
+@keyframes carga {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}

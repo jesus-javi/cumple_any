@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>FELIZ CUMPLEAÑOS ANY</title>
+</head>
+<body>
+    <!-- PANTALLA DE INICIO (Soluciona el bloqueo de audio del navegador) -->
+    <div id="pantalla-inicio" class="pantalla-inicio">
+        <button id="boton-abrir">🎁 Abrir Sorpresa 🎁</button>
+    </div>
+
+    <!-- Tu música (sin autoplay, lo arranca el botón) -->
+    <audio id="musicaFondo" loop>
+        <source src="music/cumple.webm" type="audio/mpeg">
+    </audio>
+
+    <!-- Contenedor del confeti -->
+    <div id="contenedor-confeti"></div>
+    
+    <!-- Contenido principal -->
+    <div class="caja_titulo">
+        <div class="titulo-contenedor">
+            <h1 class="titulo">FELIZ CUMPLEAÑOS ANY</h1>
+            <h1 class="titulo">FELIZ CUMPLEAÑOS ANY</h1>
+        </div>
+        
+        <div class="subir" id="subir">A ver una sonrisita 😜</div>
+        <a href="abrazo.html" class="pasar">Apriétame</a>
+    </div>
+    
+    <script src="index.js"></script>
+</body>
+</html>

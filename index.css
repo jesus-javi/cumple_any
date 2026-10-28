@@ -1,0 +1,194 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    background: linear-gradient(135deg, rgb(18, 39, 45) 0%, rgb(10, 20, 25) 100%);
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+}
+
+/* --- PANTALLA DE INICIO --- */
+.pantalla-inicio {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(18, 39, 45); /* Mismo color del fondo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    transition: opacity 0.5s ease;
+}
+
+#boton-abrir {
+    padding: 20px 40px;
+    font-size: 1.5rem;
+    background: #ff595e;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(255, 89, 94, 0.4);
+    animation: latidoBoton 2s infinite;
+}
+
+@keyframes latidoBoton {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* --- CONTENIDO PRINCIPAL --- */
+.caja_titulo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.titulo-contenedor {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0; 
+    transform: scale(0.5); 
+}
+
+/* Esta clase la inyecta JavaScript al hacer clic en el botón de inicio */
+.titulo-contenedor.iniciar-animacion {
+    animation: aparecerTitulo 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) 3s forwards; 
+}
+
+@keyframes aparecerTitulo {
+    to { opacity: 1; transform: scale(1); }
+}
+
+.titulo {
+    position: absolute;
+    font-size: clamp(2rem, 5vw, 4rem); 
+    font-weight: 1000;
+    text-align: center;
+    width: 100%;
+}
+
+.titulo:nth-child(1) {
+    color: transparent;
+    -webkit-text-stroke: 2px orange;
+    transition: color 0.3s ease;
+}
+
+.titulo:nth-child(1):hover {
+    color: white;
+}
+
+.titulo:nth-child(2) {
+    color: #03a9f4;
+    animation: animate 4s ease-in-out infinite;
+    transition: color 0.3s ease;
+}
+
+.titulo:nth-child(2):hover {
+    color: yellow;
+}
+
+@keyframes animate {
+    0%, 100% { clip-path: polygon(0% 45%, 15% 44%, 32% 50%, 54% 60%, 70% 61%, 84% 59%, 100% 52%, 100% 100%, 0% 100%); }
+    50% { clip-path: polygon(0% 60%, 16% 65%, 34% 66%, 51% 62%, 67% 50%, 84% 45%, 100% 46%, 100% 100%, 0% 100%); }
+}
+
+/* --- ESTILOS DEL CONFETI --- */
+#contenedor-confeti {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5; 
+    overflow: hidden;
+}
+
+.confeti {
+    position: absolute;
+    top: -10vh;
+    opacity: 1;
+    animation-name: caer;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes caer {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(115vh) rotate(720deg); }
+}
+
+/* --- BURBUJA FLOTANTE --- */
+.subir {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 150px;
+    width: 150px;
+    font-size: 1.5rem;
+    color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 15px 35px red, inset 0 15px 35px 6px rebeccapurple;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    animation: flotar 4s ease-in-out infinite;
+    padding: 20px;
+    transition: opacity 0.5s ease, transform 0.3s ease;
+}
+
+.subir:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+@keyframes flotar {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+/* --- BOTÓN PASAR --- */
+.pasar {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    padding: 15px 40px;
+    border-radius: 30px;
+    background: yellowgreen;
+    text-decoration: none;
+    color: blueviolet;
+    font-weight: bold;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    box-shadow: 0 5px 15px rgba(154, 205, 50, 0.4);
+    transition: all 0.3s ease;
+}
+
+.pasar:hover {
+    background: #8cc63f;
+    color: white;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(154, 205, 50, 0.6);
+}
